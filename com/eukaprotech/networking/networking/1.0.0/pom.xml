@@ -6,7 +6,8 @@
   <artifactId>networking</artifactId>
   <version>1.0.0</version>
   <packaging>aar</packaging>
-  <inceptionYear>2016</inceptionYear>
+  <name>networking</name>
+  <description>An asynchronous http client built on top of Apache Http components</description>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -14,4 +15,7 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <dependencies>
+    
+  </dependencies>
 </project>

@@ -1,6 +1,5 @@
-
 # Description
-An android asynchronous http client built on top of Apache Http components.
+An android asynchronous http client based on HttpURLConnection.
 
 # Getting Started
 Add the dependency in build.gradle (App module)
@@ -8,7 +7,9 @@ Add the dependency in build.gradle (App module)
 ```compile 'com.eukaprotech.networking:networking:1.0.0@aar'```
 
 Add permission in manifest file
-<uses-permission android:name="android.permission.INTERNET" />
+
+```<uses-permission android:name="android.permission.INTERNET" />```
+
 # Usage Example
 
 GET request

@@ -7,7 +7,7 @@
   <version>1.0.0</version>
   <packaging>aar</packaging>
   <name>networking</name>
-  <description>An asynchronous http client built on top of Apache Http components</description>
+  <description>An android asynchronous http client based on HttpURLConnection.</description>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>

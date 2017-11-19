@@ -223,3 +223,7 @@ To upload files, include them among the parameters
             
         }
         
+<a href='https://bintray.com/eukaprotech/maven/networking?source=watch' alt='Get automatic notifications about new "networking" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
+
+[ ![Download](https://api.bintray.com/packages/eukaprotech/maven/networking/images/download.svg) ](https://bintray.com/eukaprotech/maven/networking/_latestVersion)
+        

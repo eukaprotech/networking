@@ -191,7 +191,7 @@ POST request
             jsonObject.put("key1", "value1");
             jsonObject.put("key2", "value2");
         }catch (Exception ex){}
-        asyncConnection.post("url", headers, parameters, new AsyncConnectionHandler() {
+        asyncConnection.post("url", headers, jsonObject, new AsyncConnectionHandler() {
             @Override
             public void onStart() {
 

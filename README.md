@@ -5,16 +5,16 @@ An android asynchronous http client based on HttpURLConnection.
 * [v1.0.0](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
 * [v1.0.1](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.1/README.md "Version 1.0.1 Overview")
 
-# Getting Started
+# Getting Started (V1.0.1)
 Add the dependency in build.gradle (App module)
 
-```compile 'com.eukaprotech.networking:networking:1.0.0@aar'```
+```compile 'com.eukaprotech.networking:networking:1.0.1@aar'```
 
 Add permission in manifest file
 
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
-# V1.0.1 Usage Example
+# Usage Example (V1.0.1)
 
 GET request
 

@@ -6,7 +6,7 @@ An android asynchronous http client based on HttpURLConnection.
 # Getting Started
 Add the dependency in build.gradle (App module)
 
-```compile 'com.eukaprotech.networking:networking:1.0.0@aar'```
+```compile 'com.eukaprotech.networking:networking:1.0.1@aar'```
 
 Add permission in manifest file
 

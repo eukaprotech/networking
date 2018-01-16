@@ -1,10 +1,9 @@
-# V1.0.0
-
 # Description
 An android asynchronous http client based on HttpURLConnection.
 
 # Versions
-* [v1.0.0 overview](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
+* [v1.0.0](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
+* [v1.0.1](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.1/README.md "Version 1.0.1 Overview")
 
 # Getting Started
 Add the dependency in build.gradle (App module)
@@ -15,7 +14,7 @@ Add permission in manifest file
 
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
-# Usage Example
+# V1.0.1 Usage Example
 
 GET request
 
@@ -29,12 +28,12 @@ GET request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -57,12 +56,12 @@ GET request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -87,12 +86,12 @@ GET request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -114,12 +113,12 @@ POST request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -142,12 +141,12 @@ POST request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -172,12 +171,12 @@ POST request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -203,12 +202,12 @@ POST request
             }
 
             @Override
-            public void onSucceed(int responseCode, String response) {
+            public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
 
             }
 
             @Override
-            public void onFail(int responseCode, String response, String error) {
+            public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
 
             }
 
@@ -230,5 +229,4 @@ To upload files, include them among the parameters
         
 <a href='https://bintray.com/eukaprotech/maven/networking?source=watch' alt='Get automatic notifications about new "networking" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
 
-[ ![Download](https://api.bintray.com/packages/eukaprotech/maven/networking/images/download.svg) ](https://bintray.com/eukaprotech/maven/networking/_latestVersion)
-        
+[ ![Download](https://api.bintray.com/packages/eukaprotech/maven/networking/images/download.svg?version=1.0.1) ](https://bintray.com/eukaprotech/maven/networking/1.0.1/link)

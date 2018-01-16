@@ -1,5 +1,10 @@
+# V1.0.0
+
 # Description
 An android asynchronous http client based on HttpURLConnection.
+
+# Versions
+* [v1.0.0 overview](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
 
 # Getting Started
 Add the dependency in build.gradle (App module)

@@ -225,5 +225,14 @@ To upload files, include them among the parameters
             
         }
         
+Sample basic auth header attachment
+ 
+        HashMap<String, String> headers = new HashMap<>();
+        String username = "example@gmail.com"; 
+        String password = "123456789";
+        String auth_value = username+":"+password;
+        String basicAuth = "basic "+ Base64.encodeToString(auth_value.getBytes(), Base64.NO_WRAP);
+        headers.put("Authorization", basicAuth);
+        
 <a href='https://bintray.com/eukaprotech/maven/networking?source=watch' alt='Get automatic notifications about new "networking" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
         

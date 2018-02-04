@@ -186,9 +186,11 @@ To attach a basic auth in the request headers:
         headers.put("Authorization", basicAuth);
         
  Method 2: (Let AsyncConnection handle it)
- 
+         
+        String username = "example@gmail.com"; 
+        String password = "123456789";
         AsyncConnection asyncConnection = new AsyncConnection();
-        asyncConnection.setBasicAuthentication("username", "password"); 
+        asyncConnection.setBasicAuthentication(username, password); 
 
  
 # Uploading Files

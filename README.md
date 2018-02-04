@@ -105,6 +105,8 @@ Sample:
         
         
 # Body Parameters (Used for POST & PUT)
+
+To attach parameters as the body/content of the request
         
         Parameters parameters = new Parameters();
         parameters.put("key1", "value1");
@@ -121,29 +123,7 @@ Sample:
         asyncConnection.put("url", parameters, new AsyncConnectionHandler() {  
             // the implemented listener methods
         });
-        
-# Body JSONObject (Used for POST & PUT)
-
-JSONObject can be used in place of Parameters:
-
-        JSONObject jsonObject = new JSONObject();
-        try{
-            jsonObject.put("key1", "value1");
-            jsonObject.put("key2", "value2");
-        }catch (Exception ex){}
-        
-        //For a POST request
-        AsyncConnection asyncConnection = new AsyncConnection();
-        asyncConnection.post("url", jsonObject, new AsyncConnectionHandler() {  
-            // the implemented listener methods 
-        });
-        
-        //For a PUT request
-        AsyncConnection asyncConnection = new AsyncConnection();
-        asyncConnection.put("url", jsonObject, new AsyncConnectionHandler() {  
-            // the implemented listener methods 
-        });
-        
+             
 # Request Headers
 
 To attach request headers:
@@ -166,6 +146,31 @@ To attach request headers:
             // the implemented listener methods 
         });
         //Other request methods have similar way of attaching request headers
+        
+# Body JSONObject (Used for POST & PUT)
+
+JSONObject can be used in place of Parameters as the body/content of the request:
+
+        JSONObject jsonObject = new JSONObject();
+        try{
+            jsonObject.put("key1", "value1");
+            jsonObject.put("key2", "value2");
+        }catch (Exception ex){}
+        
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");    //header for JSONObject being the body/content
+        
+        //For a POST request
+        AsyncConnection asyncConnection = new AsyncConnection();
+        asyncConnection.post("url", headers, jsonObject, new AsyncConnectionHandler() {  
+            // the implemented listener methods 
+        });
+        
+        //For a PUT request
+        AsyncConnection asyncConnection = new AsyncConnection();
+        asyncConnection.put("url", headers, jsonObject, new AsyncConnectionHandler() {  
+            // the implemented listener methods 
+        });
         
 # Basic Authentication
 

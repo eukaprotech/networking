@@ -30,30 +30,28 @@ Add permission in manifest file
 GET request:
      
 ```javascript
+      AsyncConnection asyncConnection = new AsyncConnection();
+      asyncConnection.get("url", new AsyncConnectionHandler() { 
+          @Override
+          public void onStart() {
+             //you can choose to show a progress dialog here
+          }
 
-    AsyncConnection asyncConnection = new AsyncConnection();
-    asyncConnection.get("url", new AsyncConnectionHandler() { 
-        @Override
-        public void onStart() {
-           //you can choose to show a progress dialog here
-        }
+          @Override
+          public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
+              //consume the success response here
+          }
 
-        @Override
-        public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
-            //consume the success response here
-        }
+          @Override
+          public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
+              //consume the fail response here
+          }
 
-        @Override
-        public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
-            //consume the fail response here
-        }
-
-        @Override
-        public void onComplete() {
-           //you can dismiss the progress dialog here
-        }
-    });
-    
+          @Override
+          public void onComplete() {
+             //you can dismiss the progress dialog here
+          }
+      });
 ```
 
 Sample GET request:

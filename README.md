@@ -29,7 +29,7 @@ Add permission in manifest file
 
 GET request:
      
-```
+```javascript
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("url", new AsyncConnectionHandler() { 
    @Override

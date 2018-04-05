@@ -29,7 +29,7 @@ Add permission in manifest file
 
 GET request:
      
-```javascript
+```js
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("url", new AsyncConnectionHandler() { 
    @Override
@@ -56,7 +56,7 @@ asyncConnection.get("url", new AsyncConnectionHandler() {
 
 Sample GET request:
       
-```javascript
+```js
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("https://www.google.com", new AsyncConnectionHandler() { 
     @Override
@@ -85,7 +85,7 @@ asyncConnection.get("https://www.google.com", new AsyncConnectionHandler() {
 
 To attach query parameters to a url:
 
-```javascript
+```js
 Parameters query_parameters = new Parameters();
 query_parameters.put("key1", "value1");
 query_parameters.put("key2", "value2");
@@ -98,7 +98,7 @@ String url = URLBuilder.build("initial_url", query_parameters);
        
 Sample:
       
-```javascript
+```js
 Parameters query_parameters = new Parameters();
 query_parameters.put("q", "discover");
 String url = URLBuilder.build("https://www.google.com/search", query_parameters);
@@ -116,7 +116,7 @@ asyncConnection.get(url, new AsyncConnectionHandler() {
 
 To attach parameters as the body/content of the request
       
-```javascript
+```js
 Parameters parameters = new Parameters();
 parameters.put("key1", "value1");
 parameters.put("key2", "value2");
@@ -138,7 +138,7 @@ asyncConnection.put("url", parameters, new AsyncConnectionHandler() {
 
 To attach request headers:
  
-```javascript
+```js
 HashMap<String, String> headers = new HashMap<>();
 headers.put("header_key1", "header_value1");
 headers.put("header_key2", "header_value2"); 
@@ -162,7 +162,7 @@ asyncConnection.get("url", headers, new AsyncConnectionHandler() {
         
 # Body JSONObject (Used for POST & PUT)
 
-```javascript
+```js
 JSONObject can be used in place of Parameters as the body/content of the request:
 
 JSONObject jsonObject = new JSONObject();
@@ -193,7 +193,7 @@ To attach a basic auth in the request headers:
 
  Method 1: (Handle it)
  
- ```javascript
+ ```js
 HashMap<String, String> headers = new HashMap<>();
 String username = "example@gmail.com"; 
 String password = "123456789";
@@ -204,7 +204,7 @@ headers.put("Authorization", basicAuth);
         
  Method 2: (Let AsyncConnection handle it)
       
-```javascript
+```js
 String username = "example@gmail.com"; 
 String password = "123456789";
 AsyncConnection asyncConnection = new AsyncConnection();
@@ -215,7 +215,7 @@ asyncConnection.setBasicAuthentication(username, password);
  
 To upload files, include them in the body parameters
     
-```javascript
+```js
 File file = new File("file path");
 Parameters parameters = new Parameters();
 try {
@@ -231,7 +231,7 @@ parameters.put("key2", "key2");
 By default AsyncConnection does not follow redirects to different protocols such as HTTP to HTTPS or HTTPS to HTTP.
 To enable protocol shift redirects:
 
-```javascript
+```js
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.setFollowProtocolShiftRedirects(true);
 ```
@@ -240,7 +240,7 @@ asyncConnection.setFollowProtocolShiftRedirects(true);
  
 To consume the byte array response as a String:
      
-```javascript
+```js
 String responseBody = new String(response); //OR
 String responseBody = new String(response, "UTF-8");
 ```

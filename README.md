@@ -29,8 +29,7 @@ Add permission in manifest file
 
 GET request:
      
-```javascript
-AsyncConnection asyncConnection = new AsyncConnection();
+```AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("url", new AsyncConnectionHandler() { 
     @Override
     public void onStart() {
@@ -51,8 +50,7 @@ asyncConnection.get("url", new AsyncConnectionHandler() {
     public void onComplete() {
        //you can dismiss the progress dialog here
     }
-});
-```
+});```
 
 Sample GET request:
       

@@ -129,16 +129,19 @@ To attach parameters as the body/content of the request
 To attach request headers:
         
         HashMap<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "basicAuth value");
+        headers.put("header_key1", "header_value1");
+        headers.put("header_key2", "header_value2");
+        
+        //For a POST request
         Parameters parameters = new Parameters();
         parameters.put("key1", "value1");
         parameters.put("key2", "value2");
-        
-        //For a POST request
+
         AsyncConnection asyncConnection = new AsyncConnection();
         asyncConnection.post("url", headers, parameters, new AsyncConnectionHandler() { 
             // the implemented methods 
         });
+        
         
         //For a GET request
         AsyncConnection asyncConnection = new AsyncConnection();

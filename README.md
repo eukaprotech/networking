@@ -162,9 +162,9 @@ asyncConnection.get("url", headers, new AsyncConnectionHandler() {
         
 # Body JSONObject (Used for POST & PUT)
 
-``` js
 JSONObject can be used in place of Parameters as the body/content of the request:
 
+``` js
 JSONObject jsonObject = new JSONObject();
 try{
     jsonObject.put("key1", "value1");
@@ -223,7 +223,7 @@ try {
 } catch (IOException e) {
             
 }
-parameters.put("key2", "key2");
+parameters.put("key2", "value2");
 ```
         
 # Redirects

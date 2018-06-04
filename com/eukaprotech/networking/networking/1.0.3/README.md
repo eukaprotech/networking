@@ -212,9 +212,9 @@ To enable protocol shift redirects:
     
 # Setting TimeOut
 
-AsyncConnection asyncConnection = new AsyncConnection();
-int time_out_in_milliseconds = 5000;
-asyncConnection.setTimeOut(time_out_in_milliseconds);
+    AsyncConnection asyncConnection = new AsyncConnection();
+    int time_out_in_milliseconds = 5000;
+    asyncConnection.setTimeOut(time_out_in_milliseconds);
  
 # NOTE
  

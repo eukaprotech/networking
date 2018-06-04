@@ -237,7 +237,7 @@ AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.setFollowProtocolShiftRedirects(true);
 ```
 
-# Setting TimeOut
+# Setting Time Out
 
 ``` js
 AsyncConnection asyncConnection = new AsyncConnection();

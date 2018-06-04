@@ -210,7 +210,7 @@ To enable protocol shift redirects:
     AsyncConnection asyncConnection = new AsyncConnection();
     asyncConnection.setFollowProtocolShiftRedirects(true);
     
-# Setting TimeOut
+# Setting Time Out
 
     AsyncConnection asyncConnection = new AsyncConnection();
     int time_out_in_milliseconds = 5000;

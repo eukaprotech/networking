@@ -2,20 +2,21 @@
 An android asynchronous http client based on HttpURLConnection.
 
 # Versions
-* [v1.0.0](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
-* [v1.0.1](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.1/README.md "Version 1.0.1 Overview")
-* [v1.0.2](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.2/README.md "Version 1.0.2 Overview")
+* [V1.0.0](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
+* [V1.0.1](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.1/README.md "Version 1.0.1 Overview")
+* [V1.0.2](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.2/README.md "Version 1.0.2 Overview")
+* [V1.0.3](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.3/README.md "Version 1.0.3 Overview")
 
-# Getting Started (V1.0.2)
+# Getting Started (V1.0.3)
 Add the dependency in build.gradle (App module)
 
-```compile 'com.eukaprotech.networking:networking:1.0.2@aar'```
+```compile 'com.eukaprotech.networking:networking:1.0.3@aar'```
 
 Add permission in manifest file
 
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
-# Usage (V1.0.2)
+# Usage (V1.0.3)
 
 # Request Methods covered:
 
@@ -234,6 +235,14 @@ To enable protocol shift redirects:
 ``` js
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.setFollowProtocolShiftRedirects(true);
+```
+
+# Setting Time Out
+
+``` js
+AsyncConnection asyncConnection = new AsyncConnection();
+int time_out_in_milliseconds = 5000;
+asyncConnection.setTimeOut(time_out_in_milliseconds);
 ```
  
 # NOTE

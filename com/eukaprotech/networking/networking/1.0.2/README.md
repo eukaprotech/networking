@@ -1,4 +1,4 @@
-# v1.0.2
+# Version 1.0.2
 
 # Description
 An android asynchronous http client based on HttpURLConnection.
@@ -190,7 +190,7 @@ To attach a basic auth in the request headers:
  
 # Uploading Files
  
-To upload files, include them in the body parameters
+To upload a file, include it in the body parameters
        
         File file = new File("file path");
         Parameters parameters = new Parameters();
@@ -199,7 +199,7 @@ To upload files, include them in the body parameters
         } catch (IOException e) {
             
         }
-        parameters.put("key2", "key2");
+        parameters.put("key2", "value2");
     
         
 # Redirects

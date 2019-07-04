@@ -226,7 +226,7 @@ To upload array of files, include the array in the body parameters
         }
         parameters.put("key2", "value2");
         
-# Uploading Files whose content is defined by your own bytes or InputStream 
+# Uploading Files whose content is your own bytes or InputStream 
  
 A class named FileItem is used. Note that parameters of value FileItem are uploaded to the server just like any other file; difference being that the content is read from the bytes or inputstream you provide.
 
@@ -241,14 +241,14 @@ To upload a file with your own bytes as content, include it as a FileItem in the
 To upload a file with your own InputStream as content, include it as a FileItem in the body parameters
        
         InputStream inputStream = null;
-        File file = sampleFile();
+        File file = new File("file path");
         try {
             inputStream = new BufferedInputStream(new FileInputStream(file));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         long length = file.length();
-        FileItem fileItem = new FileItem("index.html", length, inputStream);
+        FileItem fileItem = new FileItem("index.html", length, inputStream); //the length is important for progress monitoring
         Parameters parameters = new Parameters();
         parameters.put("key1", fileItem);
         parameters.put("key2", "value2");
@@ -259,7 +259,7 @@ To upload array of files with your own bytes or InputStream as content, include 
         FileItem fileItem1 = new FileItem("sample.txt", bytes);
         
         InputStream inputStream = null;
-        File file = sampleFile();
+        File file = new File("file path");
         try {
             inputStream = new BufferedInputStream(new FileInputStream(file));
         } catch (FileNotFoundException e) {
@@ -275,7 +275,7 @@ To upload array of files with your own bytes or InputStream as content, include 
         
 # Uploading Bytes
  
-To upload bytes, include them in the body parameters
+To upload bytes, include them as BytesItem in the body parameters
        
         Parameters parameters = new Parameters();
         byte[] bytes = "Hey bytes".getBytes()// your bytes here;
@@ -284,12 +284,11 @@ To upload bytes, include them in the body parameters
         
 # Provide Your own InputStream for Upload
  
-To provide your own inputstream, include it in the body parameters. In the example shown below, the 
+To provide your own inputstream, include it as an InputStreamItem in the body parameters. In the example shown below, the 
        
-        File file = new File("file path");
         Parameters parameters = new Parameters();
         InputStream inputStream = null;
-        File file = sampleFile();
+        File file = new File("file path");
         try {
             inputStream = new BufferedInputStream(new FileInputStream(file));
         } catch (FileNotFoundException e) {

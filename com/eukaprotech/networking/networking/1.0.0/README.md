@@ -235,4 +235,4 @@ Sample basic auth header attachment
         headers.put("Authorization", basicAuth);
         
 <a href='https://bintray.com/eukaprotech/maven/networking?source=watch' alt='Get automatic notifications about new "networking" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_color.png'></a>
-        
+[ ![Download](https://api.bintray.com/packages/eukaprotech/maven/networking/images/download.svg?version=1.0.0) ](https://bintray.com/eukaprotech/maven/networking/1.0.0/link)

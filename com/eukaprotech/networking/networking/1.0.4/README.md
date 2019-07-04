@@ -3,7 +3,7 @@
 # Description
 An android asynchronous http client based on HttpURLConnection.
 
-# Updates:
+# Updates
 
 * You can now provide your own byte-array for upload.
 * Provide your own InPutStream for upload.
@@ -21,7 +21,7 @@ Add permission in manifest file
 
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
-# Request Methods covered:
+# Request Methods covered
 
 * GET
 * POST

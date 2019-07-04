@@ -22,7 +22,7 @@ Add permission in manifest file
 
 ```<uses-permission android:name="android.permission.INTERNET" />```
 
-# Request Methods covered
+# Request Methods Covered
 
 * GET
 * POST
@@ -248,7 +248,7 @@ try {
 parameters.put("key2", "value2");
 ```
         
-# Uploading Files whose content is your own bytes or InputStream 
+# Uploading Files Whose Content is Your Bytes or InputStream 
  
 A class named FileItem is used. Note that parameters of value FileItem are uploaded to the server just like any other file; difference being that the content is read from the bytes or inputstream you provide.
 
@@ -312,7 +312,7 @@ parameters.put("key1", new BytesItem(bytes));
 parameters.put("key2", "value2");
 ```
         
-# Provide Your own InputStream for Upload
+# Provide Your InputStream for Upload
  
 To provide your own inputstream, include it as an InputStreamItem in the body parameters. In the example shown below, the 
        

@@ -3,6 +3,15 @@
 # Description
 An android asynchronous http client based on HttpURLConnection.
 
+# Updates:
+
+* You can now provide your own byte-array for upload.
+* Provide your own InPutStream for upload.
+* A custom file representation object for upload; with your own byte-array or InputStream.
+* Provide an array of Files for upload.
+* A listener to the upload progress as well as download progress.
+* A multi-connections manager to monitor the upload and download progress of mutiple connections.
+
 # Getting Started
 Add the dependency in build.gradle (App module)
 
@@ -190,7 +199,7 @@ To attach a basic auth in the request headers:
  
 # Uploading Files
  
-To upload files, include them in the body parameters
+To upload a File, include it in the body parameters
        
         File file = new File("file path");
         Parameters parameters = new Parameters();
@@ -199,7 +208,96 @@ To upload files, include them in the body parameters
         } catch (IOException e) {
             
         }
-        parameters.put("key2", "key2");
+        parameters.put("key2", "value2");
+        
+# Uploading Array of Files 
+ 
+To upload array of files, include the array in the body parameters
+       
+        File file1 = new File("file path1");
+        File file2 = new File("file path2");
+        
+        Parameters parameters = new Parameters();
+        File[] arrayFiles = new File[]{file1, file2};
+        try {
+            parameters.put("key1", arrayFiles);
+        } catch (IOException e) {
+            
+        }
+        parameters.put("key2", "value2");
+        
+# Uploading Files whose content is defined by your own bytes or InputStream 
+ 
+A class named FileItem is used. Note that parameters of value FileItem are uploaded to the server just like any other file; difference being that the content is read from the bytes or inputstream you provide.
+
+To upload a file with your own bytes as content, include it as a FileItem in the body parameters.
+       
+        byte[] bytes = "Hey there".getBytes();
+        FileItem fileItem = new FileItem("sample.txt", bytes); // "sample.txt" is the file name
+        Parameters parameters = new Parameters();
+        parameters.put("key1", fileItem);
+        parameters.put("key2", "value2");
+        
+To upload a file with your own InputStream as content, include it as a FileItem in the body parameters
+       
+        InputStream inputStream = null;
+        File file = sampleFile();
+        try {
+            inputStream = new BufferedInputStream(new FileInputStream(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        long length = file.length();
+        FileItem fileItem = new FileItem("index.html", length, inputStream);
+        Parameters parameters = new Parameters();
+        parameters.put("key1", fileItem);
+        parameters.put("key2", "value2");
+        
+To upload array of files with your own bytes or InputStream as content, include them as array of FileItem in the body parameters
+       
+        byte[] bytes = "Hey there".getBytes();
+        FileItem fileItem1 = new FileItem("sample.txt", bytes);
+        
+        InputStream inputStream = null;
+        File file = sampleFile();
+        try {
+            inputStream = new BufferedInputStream(new FileInputStream(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        long length = file.length();
+        FileItem fileItem2 = new FileItem("index.html", length, inputStream);
+        
+        FileItem[] arrayFiles = new FileItem[]{fileItem1, fileItem2};
+        Parameters parameters = new Parameters();
+        parameters.put("key1", arrayFiles);
+        parameters.put("key2", "value2");
+        
+# Uploading Bytes
+ 
+To upload bytes, include them in the body parameters
+       
+        Parameters parameters = new Parameters();
+        byte[] bytes = "Hey bytes".getBytes()// your bytes here;
+        parameters.put("key1", new BytesItem(bytes));
+        parameters.put("key2", "value2");
+        
+# Provide Your own InputStream for Upload
+ 
+To provide your own inputstream, include it in the body parameters. In the example shown below, the 
+       
+        File file = new File("file path");
+        Parameters parameters = new Parameters();
+        InputStream inputStream = null;
+        File file = sampleFile();
+        try {
+            inputStream = new BufferedInputStream(new FileInputStream(file));
+        } catch (FileNotFoundException e) {
+            
+        }
+        long length = file.length();
+        parameters.put("key1", new InputStreamItem(length, inputStream));
+        parameters.put("key2", "value2");
     
         
 # Redirects

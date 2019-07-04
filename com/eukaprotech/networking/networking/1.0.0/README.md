@@ -1,4 +1,4 @@
-# v1.0.0
+# Version 1.0.0
 
 # Description
 An android asynchronous http client based on HttpURLConnection.
@@ -215,7 +215,7 @@ POST request
             }
         });
         
-To upload files, include them among the parameters
+To upload a file, include it among the parameters
        
         File file = new File("file path");
         Parameters parameters = new Parameters();

@@ -9,6 +9,7 @@ An android asynchronous http client based on HttpURLConnection.
 * Provide your own InPutStream for upload.
 * A custom file representation object for upload; with your own byte-array or InputStream.
 * Provide an array of Files for upload.
+* A File download handler to directly write a connection response to a file.
 * A listener to the upload progress as well as download progress.
 * A multi-connections manager to monitor the upload and download progress of mutiple connections.
 

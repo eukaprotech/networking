@@ -340,7 +340,7 @@ asyncConnection.post("url", parameters, new FileAsyncConnectionHandler() {// you
 });
 ```
 
-# Track the Upload and Download Progress of Multiple Connection
+# Track the Upload and Download Progress of Multiple Connections
 
 ```java
 MultipleAsyncConnections multipleAsyncConnections = new MultipleAsyncConnections();

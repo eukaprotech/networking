@@ -342,6 +342,7 @@ asyncConnection.post("url", parameters, new FileAsyncConnectionHandler() {// you
 
 # Track the Upload and Download Progress of Multiple Connection
 
+```java
 MultipleAsyncConnections multipleAsyncConnections = new MultipleAsyncConnections();
 List<AsyncConnection> asyncConnectionList = multipleAsyncConnections.generateConnections(2);
 // 2 is the number of connections you desire to monitor
@@ -384,6 +385,7 @@ multipleAsyncConnections.startConnections(new MultipleAsyncConnectionsHandler() 
         //called once when all connections complete
     }
 });
+```
  
 # Uploading Files
  

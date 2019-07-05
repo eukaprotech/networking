@@ -88,7 +88,7 @@ asyncConnection.get("https://www.google.com", new AsyncConnectionHandler() {
 
 # File Download Handler
 
-A File download handler, FileAsyncConnectionHandler, is uded to directly write a connection response to a file:
+A File download handler, FileAsyncConnectionHandler, is used to directly write a connection response to a file:
 
 ```java
 asyncConnection.get("url", new FileAsyncConnectionHandler() {
@@ -249,9 +249,9 @@ AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.setBasicAuthentication(username, password); 
 ```
 
-# Track the Upload and Download Progress of Single Connection
+# Track the Upload and Download Progress of a Single Connection
 
-Both handlers, AsyncConnectionHandler and FileAsyncConnectionHandler have functions to listen to the upload and download progress. These functions are onUploadProgressUpdate and onDownloadProgressUpdate. The functions are optional; you can choose to implement them or not.
+Both handlers, AsyncConnectionHandler and FileAsyncConnectionHandler have functions to track the upload and download progress of a connection. These functions are onUploadProgressUpdate and onDownloadProgressUpdate. The functions are optional; you can choose to implement them or not.
 
 Tracking upload and download progress with AsyncConnectionHandler:
 

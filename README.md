@@ -362,7 +362,7 @@ AsyncConnection asyncConnection2 = asyncConnectionList.get(1);
 asyncConnection1.post("url", parameters, new AsyncConnectionHandler() {// you can use any http method other than POST
     // the implemented listener functions here
 });
-asyncConnection1.post("url", parameters, new FileAsyncConnectionHandler() {// you can use any http method other than POST
+asyncConnection2.post("url", parameters, new FileAsyncConnectionHandler() {// you can use any http method other than POST
     // the implemented listener functions here
 });
 
@@ -496,7 +496,7 @@ parameters.put("key2", "value2");
         
 # Provide Your InputStream for Upload
  
-To provide your own inputstream, include it as an InputStreamItem in the body parameters. In the example shown below, the 
+To provide your own inputstream, include it as an InputStreamItem in the body parameters. An example of using an input stream from a file:  
        
 ```java
 Parameters parameters = new Parameters();
@@ -508,6 +508,17 @@ try {
 
 }
 long length = file.length();
+parameters.put("key1", new InputStreamItem(length, inputStream));
+parameters.put("key2", "value2");
+```
+
+An example of using an input stream of bytes:
+
+```java
+Parameters parameters = new Parameters();
+byte[] bytes = "Hey bytes".getBytes();
+InputStream inputStream = new ByteInputStream(bytes);
+long length = bytes.length;
 parameters.put("key1", new InputStreamItem(length, inputStream));
 parameters.put("key2", "value2");
 ```

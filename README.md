@@ -49,12 +49,12 @@ AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("url", new AsyncConnectionHandler() { 
     @Override
     public void onStart() {
-       //you can choose to show a progress dialog here
+       //you can choose to show a progress bar here.
     }
 
     @Override
     public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
-        //consume the success response here
+        //consume the success response here.
     }
 
     @Override
@@ -64,7 +64,7 @@ asyncConnection.get("url", new AsyncConnectionHandler() {
 
     @Override
     public void onComplete() {
-       //you can dismiss the progress dialog here
+       //you can dismiss the progress bar here.
     }
 });
 ```
@@ -76,22 +76,22 @@ AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("https://www.google.com", new AsyncConnectionHandler() { 
     @Override
     public void onStart() {
-       //you can choose to show a progress dialog here
+       //you can choose to show a progress bar here.
     }
 
     @Override
     public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
-        //consume the success response here
+        //consume the success response here.
     }
 
     @Override
     public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
-        //consume the fail response here
+        //consume the fail response here.
     }
 
     @Override
     public void onComplete() {
-       //you can dismiss the progress dialog here
+       //you can dismiss the progress bar here.
     }
 });
 ```
@@ -104,7 +104,7 @@ A File download handler, FileAsyncConnectionHandler, is used to directly write a
 asyncConnection.get("url", new FileAsyncConnectionHandler() {
     @Override
     public void onStart() {
-        
+        //you can choose to show a progress bar here.
     }
 
     @Override
@@ -126,7 +126,7 @@ asyncConnection.get("url", new FileAsyncConnectionHandler() {
 
     @Override
     public void onComplete() {
-        
+        //you can dismiss the progress bar here.
     }
 });
 ```
@@ -173,13 +173,13 @@ parameters.put("key2", "value2");
 //For a POST request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.post("url", parameters, new AsyncConnectionHandler() {  
-    // the implemented listener functions here 
+    // the implemented listener functions here. 
 });
 
 //For a PUT request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.put("url", parameters, new AsyncConnectionHandler() {  
-    // the implemented listener functions here 
+    // the implemented listener functions here. 
 });
 ```
              
@@ -197,13 +197,13 @@ parameters.put("key2", "value2");
 //For a POST request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.post("url", headers, parameters, new AsyncConnectionHandler() { 
-    // the implemented listener functions here here 
+    // the implemented listener functions here. 
 });
 
 //For a GET request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("url", headers, new AsyncConnectionHandler() { 
-    // the implemented listener functions here here here  
+    // the implemented listener functions here.  
 });
 //Other request methods have similar way of attaching request headers
 ```
@@ -225,13 +225,13 @@ headers.put("Content-Type", "application/json");    //header for JSONObject bein
 //For a POST request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.post("url", headers, jsonObject, new AsyncConnectionHandler() {  
-    // the implemented listener functions here here here here 
+    // the implemented listener functions here.
 });
 
 //For a PUT request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.put("url", headers, jsonObject, new AsyncConnectionHandler() {  
-    // the implemented listener functions here here here here
+    // the implemented listener functions here.
 });
 ```
         
@@ -269,13 +269,13 @@ Tracking upload and download progress with AsyncConnectionHandler:
 asyncConnection.post("url", parameters, new AsyncConnectionHandler() {// you can use any http method other than POST
     @Override
     public void onStart() {
-        
+        //you can choose to show a progress bar here.
     }
     
     @Override
     public void onUploadProgressUpdate(long progress, long length) {
         //length is the total size of the content/parameters being uploaded or written to the connection.
-        //You can use a determinate loader at this point, to show show the progress
+        //You can use a determinate progress bar at this point.
     }
 
     @Override
@@ -284,7 +284,7 @@ asyncConnection.post("url", parameters, new AsyncConnectionHandler() {// you can
         //NOTE: length depends on the server returning a content-length header. 
         //If the server returns chunked transfer-encoding header, content-length header is not available, the length is unknown 
         //When the length is not known, the value of length will be -1.
-        //If length is -1, avoid displaying a determinate loader.
+        //If length is -1, avoid displaying a determinate progress bar.
     }
     
     @Override
@@ -299,7 +299,7 @@ asyncConnection.post("url", parameters, new AsyncConnectionHandler() {// you can
 
     @Override
     public void onComplete() {
-        
+        //you can dismiss the progress bar here.
     }
 });
 ```
@@ -310,13 +310,13 @@ Tracking upload and download progress with FileAsyncConnectionHandler:
 asyncConnection.post("url", parameters, new FileAsyncConnectionHandler() {// you can use any http method other than POST
     @Override
     public void onStart() {
-        
+        //you can choose to show a progress bar here.
     }
     
     @Override
     public void onUploadProgressUpdate(long progress, long length) {
         //length is the total size of the content/parameters being uploaded or written to the connection.
-        //You can use a determinate loader at this point, to show show the progress
+        //You can use a determinate progress bar at this point.
     }
 
     @Override
@@ -325,7 +325,7 @@ asyncConnection.post("url", parameters, new FileAsyncConnectionHandler() {// you
         //NOTE: length depends on the server returning a content-length header. 
         //If the server returns chunked transfer-encoding header, content-length header is not available, the length is unknown 
         //When the length is not known, the value of length will be -1.
-        //If length is -1, avoid displaying a determinate loader.
+        //If length is -1, avoid displaying a determinate progress bar.
     }
 
     @Override
@@ -345,7 +345,7 @@ asyncConnection.post("url", parameters, new FileAsyncConnectionHandler() {// you
 
     @Override
     public void onComplete() {
-        
+        //you can dismiss the progress bar here.
     }
 });
 ```
@@ -370,14 +370,15 @@ asyncConnection2.post("url", parameters, new FileAsyncConnectionHandler() {// yo
 multipleAsyncConnections.startConnections(new MultipleAsyncConnectionsHandler() {
     @Override
     public void onStart() {
-        //called once
+        //called once when connections start.
+        //you can choose to show a progress bar here.
     }
 
     @Override
     public void onUploadProgressUpdate(long progress, long length) {
         //progress is the cumulative size uploaded across all the connections being tracked
         //length is the cumulative total size to be uploaded across all the connections being tracked
-        //You can use a determinate loader at this point, to show show the progress
+        //You can use a determinate progress at this point.
     }
 
     @Override
@@ -387,12 +388,13 @@ multipleAsyncConnections.startConnections(new MultipleAsyncConnectionsHandler() 
         //NOTE: length depends on the server returning a content-length header to each of the connections being tracked. 
         //If the server returns chunked transfer-encoding header, content-length header is not available, the length is unknown 
         //When the length is not known, the cumulative value of length across the connections will not be useful.
-        //Avoid displaying a determinate loader here at all.
+        //Avoid displaying a determinate progress bar here at all.
     }
 
     @Override
     public void onComplete() {
-        //called once when all connections complete
+        //called once when all connections complete.
+        //you can dismiss the progress bar here.
     }
 });
 ```

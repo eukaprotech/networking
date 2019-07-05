@@ -5,13 +5,13 @@ An android asynchronous http client based on HttpURLConnection.
 
 # Updates
 
-* You can now provide your own byte-array for upload.
-* Provide your own InPutStream for upload.
-* A custom file representation object for upload; with your own byte-array or InputStream.
-* Provide an array of Files for upload.
 * A File download handler to directly write a connection response to a file.
-* A listener to the upload progress as well as download progress.
-* A multi-connections manager to monitor the upload and download progress of mutiple connections.
+* Track the upload and download progress of a single connection.
+* Track the upload and download progress of mutiple connections.
+* You can now provide an array of Files to be uploaded.
+* You can provide your own byte-array to be uploaded.
+* Provide your own InPutStream for upload.
+* Provide a custom file representation object for upload; with your own byte-array or InputStream.
 
 # Getting Started
 Add the dependency in build.gradle (App module)
@@ -85,7 +85,42 @@ asyncConnection.get("https://www.google.com", new AsyncConnectionHandler() {
     }
 });
 ```
-   
+
+# File Download Handler
+
+A File download handler, FileAsyncConnectionHandler, is uded to directly write a connection response to a file:
+
+```java
+asyncConnection.get("url", new FileAsyncConnectionHandler() {
+    @Override
+    public void onStart() {
+        
+    }
+
+    @Override
+    public String onGetFileAbsolutePath(String contentType) {
+        //you can determine the file-extension to use based on contentType
+        File file = new File("path");
+        return file.getAbsolutePath();
+    }
+
+    @Override
+    public void onSucceed(int responseCode, HashMap<String, String> headers, File response) {
+        //the response is the file whose path you provided. You can use the file at this point
+    }
+
+    @Override
+    public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
+        
+    }
+
+    @Override
+    public void onComplete() {
+        
+    }
+});
+```
+  
 # Query Parameters
 
 To attach query parameters to a url:
@@ -112,7 +147,7 @@ String url = URLBuilder.build("https://www.google.com/search", query_parameters)
 
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get(url, new AsyncConnectionHandler() {
-    // the implemented listener methods onStart, onSucceed, onFail & onComplete
+    // the implemented listener functions onStart, onSucceed, onFail & onComplete
 });
 ```       
         
@@ -128,13 +163,13 @@ parameters.put("key2", "value2");
 //For a POST request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.post("url", parameters, new AsyncConnectionHandler() {  
-    // the implemented listener methods 
+    // the implemented listener functions here 
 });
 
 //For a PUT request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.put("url", parameters, new AsyncConnectionHandler() {  
-    // the implemented listener methods
+    // the implemented listener functions here 
 });
 ```
              
@@ -152,13 +187,13 @@ parameters.put("key2", "value2");
 //For a POST request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.post("url", headers, parameters, new AsyncConnectionHandler() { 
-    // the implemented methods 
+    // the implemented listener functions here here 
 });
 
 //For a GET request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.get("url", headers, new AsyncConnectionHandler() { 
-    // the implemented listener methods 
+    // the implemented listener functions here here here  
 });
 //Other request methods have similar way of attaching request headers
 ```
@@ -180,13 +215,13 @@ headers.put("Content-Type", "application/json");    //header for JSONObject bein
 //For a POST request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.post("url", headers, jsonObject, new AsyncConnectionHandler() {  
-    // the implemented listener methods 
+    // the implemented listener functions here here here here 
 });
 
 //For a PUT request
 AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.put("url", headers, jsonObject, new AsyncConnectionHandler() {  
-    // the implemented listener methods 
+    // the implemented listener functions here here here here
 });
 ```
         
@@ -214,6 +249,141 @@ AsyncConnection asyncConnection = new AsyncConnection();
 asyncConnection.setBasicAuthentication(username, password); 
 ```
 
+# Track the Upload and Download Progress of Single Connection
+
+Both handlers, AsyncConnectionHandler and FileAsyncConnectionHandler have functions to listen to the upload and download progress. These functions are onUploadProgressUpdate and onDownloadProgressUpdate. The functions are optional; you can choose to implement them or not.
+
+Tracking upload and download progress with AsyncConnectionHandler:
+
+```java
+asyncConnection.post("url", parameters, new AsyncConnectionHandler() {// you can use any http method other than POST
+    @Override
+    public void onStart() {
+        
+    }
+    
+    @Override
+    public void onUploadProgressUpdate(long progress, long length) {
+        //length is the total size of the content/parameters being uploaded or written to the connection.
+        //You can use a determinate loader at this point, to show show the progress
+    }
+
+    @Override
+    public void onDownloadProgressUpdate(long progress, long length) {
+        //length is the total size of the content being downloaded or read from the connection.
+        //NOTE: length depends on the server returning a content-length header. 
+        //If the server returns chunked transfer-encoding header, content-length header is not available, the length is unknown 
+        //When the length is not known, the value of length will be -1.
+        //If length is -1, avoid displaying a determinate loader.
+    }
+    
+    @Override
+    public void onSucceed(int responseCode, HashMap<String, String> headers, byte[] response) {
+        
+    }
+
+    @Override
+    public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
+        
+    }
+
+    @Override
+    public void onComplete() {
+        
+    }
+});
+```
+
+Tracking upload and download progress with FileAsyncConnectionHandler:
+
+```java
+asyncConnection.post("url", parameters, new FileAsyncConnectionHandler() {// you can use any http method other than POST
+    @Override
+    public void onStart() {
+        
+    }
+    
+    @Override
+    public void onUploadProgressUpdate(long progress, long length) {
+        //length is the total size of the content/parameters being uploaded or written to the connection.
+        //You can use a determinate loader at this point, to show show the progress
+    }
+
+    @Override
+    public void onDownloadProgressUpdate(long progress, long length) {
+        //length is the total size of the content being downloaded or read from the connection.
+        //NOTE: length depends on the server returning a content-length header. 
+        //If the server returns chunked transfer-encoding header, content-length header is not available, the length is unknown 
+        //When the length is not known, the value of length will be -1.
+        //If length is -1, avoid displaying a determinate loader.
+    }
+
+    @Override
+    public String onGetFileAbsolutePath(String contentType) {
+        
+    }
+
+    @Override
+    public void onSucceed(int responseCode, HashMap<String, String> headers, File response) {
+        
+    }
+
+    @Override
+    public void onFail(int responseCode, HashMap<String, String> headers, byte[] response, Exception error) {
+        
+    }
+
+    @Override
+    public void onComplete() {
+        
+    }
+});
+```
+
+# Track the Upload and Download Progress of Multiple Connection
+
+MultipleAsyncConnections multipleAsyncConnections = new MultipleAsyncConnections();
+List<AsyncConnection> asyncConnectionList = multipleAsyncConnections.generateConnections(2);
+// 2 is the number of connections you desire to monitor
+AsyncConnection asyncConnection1 = asyncConnectionList.get(0);
+AsyncConnection asyncConnection2 = asyncConnectionList.get(1);
+        
+asyncConnection1.post("url", parameters, new AsyncConnectionHandler() {// you can use any http method other than POST
+    // the implemented listener functions here
+});
+asyncConnection1.post("url", parameters, new FileAsyncConnectionHandler() {// you can use any http method other than POST
+    // the implemented listener functions here
+});
+
+//For Connections generated by MultipleAsyncConnections to start processing;
+multipleAsyncConnections.startConnections(new MultipleAsyncConnectionsHandler() {
+    @Override
+    public void onStart() {
+        //called once
+    }
+
+    @Override
+    public void onUploadProgressUpdate(long progress, long length) {
+        //progress is the cumulative size uploaded across all the connections being tracked
+        //length is the cumulative total size to be uploaded across all the connections being tracked
+        //You can use a determinate loader at this point, to show show the progress
+    }
+
+    @Override
+    public void onDownloadProgressUpdate(long progress, long length) {
+        //progress is the cumulative size downloaded across all the connections being tracked
+        //length is the cumulative total size to be downloaded across all the connections being tracked
+        //NOTE: length depends on the server returning a content-length header to each of the connections being tracked. 
+        //If the server returns chunked transfer-encoding header, content-length header is not available, the length is unknown 
+        //When the length is not known, the cumulative value of length across the connections will not be useful.
+        //Avoid displaying a determinate loader here at all.
+    }
+
+    @Override
+    public void onComplete() {
+        //called once when all connections complete
+    }
+});
  
 # Uploading Files
  

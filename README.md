@@ -1,6 +1,3 @@
-# Description
-An android asynchronous http client based on HttpURLConnection.
-
 # Versions
 * [1.0.0](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
 * [1.0.1](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.1/README.md "Version 1.0.1 Overview")

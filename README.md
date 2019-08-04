@@ -356,10 +356,10 @@ List<AsyncConnection> asyncConnectionList = multipleAsyncConnections.generateCon
 AsyncConnection asyncConnection1 = asyncConnectionList.get(0);
 AsyncConnection asyncConnection2 = asyncConnectionList.get(1);
         
-asyncConnection1.post("url", parameters, new AsyncConnectionHandler() {// you can use any http method other than POST
+asyncConnection1.post("url", parameters1, new AsyncConnectionHandler() {// you can use any http method other than POST
     // the implemented listener functions here
 });
-asyncConnection2.post("url", parameters, new FileAsyncConnectionHandler() {// you can use any http method other than POST
+asyncConnection2.post("url", parameters2, new FileAsyncConnectionHandler() {// you can use any http method other than POST
     // the implemented listener functions here
 });
 

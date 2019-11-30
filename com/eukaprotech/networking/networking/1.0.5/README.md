@@ -1,11 +1,3 @@
-# Versions
-* [1.0.0](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.0/README.md "Version 1.0.0 Overview")
-* [1.0.1](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.1/README.md "Version 1.0.1 Overview")
-* [1.0.2](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.2/README.md "Version 1.0.2 Overview")
-* [1.0.3](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.3/README.md "Version 1.0.3 Overview")
-* [1.0.4](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.4/README.md "Version 1.0.4 Overview")
-* [1.0.5](https://github.com/eukaprotech/networking/blob/master/com/eukaprotech/networking/networking/1.0.5/README.md "Version 1.0.5 Overview")
-
 # Version 1.0.5
 
 # Description

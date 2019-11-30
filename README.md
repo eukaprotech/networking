@@ -13,7 +13,7 @@ An android asynchronous http client based on HttpURLConnection.
 
 # Updates
 
-* Use of Thread pool for improved memory management.
+* Use of Thread Pool for improved memory management.
 
 # Getting Started
 Add the dependency in build.gradle (App module)

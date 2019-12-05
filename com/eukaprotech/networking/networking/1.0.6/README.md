@@ -5,7 +5,7 @@ An android asynchronous http client based on HttpURLConnection.
 
 # Updates
 
-* Use of java Future object to allow blocking of current thread until the asynchronous http client returns results.
+* Use of java Future object to allow optional blocking of current thread until the asynchronous http client returns results.
 
 # Getting Started
 Add the dependency in build.gradle (App module)

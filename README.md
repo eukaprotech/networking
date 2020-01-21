@@ -119,6 +119,12 @@ HashMap<String, Object> map = asyncConnection.get("https://www.google.com", new 
     }
 }).get();// the blocking call. 
 ```
+OR
+
+```java
+AsyncConnection asyncConnection = new AsyncConnection();
+HashMap<String, Object> map = asyncConnection.get("https://www.google.com", null).get();// the blocking call. 
+```
 
 The HashMap<String, Object> contains the following key-value pairs:
 

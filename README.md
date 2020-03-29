@@ -481,7 +481,7 @@ To upload a file with your own bytes as content, include it as a FileItem in the
        
 ```java
 byte[] bytes = "Hey there".getBytes();
-FileItem fileItem = new FileItem("sample.txt", bytes); // "sample.txt" is the file name
+FileItem fileItem = new FileItem("sample.txt", bytes); // "sample.txt" is the file name which must not be a name of an existing file
 Parameters parameters = new Parameters();
 parameters.put("key1", fileItem);
 parameters.put("key2", "value2");
@@ -491,14 +491,14 @@ To upload a file with your own InputStream as content, include it as a FileItem 
        
 ```java
 InputStream inputStream = null;
-File file = new File("file path");
+File file = new File("file path"); //must be a path of an existing file
 try {
     inputStream = new BufferedInputStream(new FileInputStream(file));
 } catch (FileNotFoundException e) {
     e.printStackTrace();
 }
 long length = file.length();
-FileItem fileItem = new FileItem("index.html", length, inputStream); //the length is important for progress monitoring
+FileItem fileItem = new FileItem("index.html", length, inputStream); //the length is important for progress monitoring, "index.html" is the file name which must not be a name of an existing file
 Parameters parameters = new Parameters();
 parameters.put("key1", fileItem);
 parameters.put("key2", "value2");
@@ -511,7 +511,7 @@ byte[] bytes = "Hey there".getBytes();
 FileItem fileItem1 = new FileItem("sample.txt", bytes);
 
 InputStream inputStream = null;
-File file = new File("file path");
+File file = new File("file path"); //must be a path of an existing file
 try {
     inputStream = new BufferedInputStream(new FileInputStream(file));
 } catch (FileNotFoundException e) {
@@ -544,7 +544,7 @@ To provide your own inputstream, include it as an InputStreamItem in the body pa
 ```java
 Parameters parameters = new Parameters();
 InputStream inputStream = null;
-File file = new File("file path");
+File file = new File("file path"); //must be a path of an existing file
 try {
     inputStream = new BufferedInputStream(new FileInputStream(file));
 } catch (FileNotFoundException e) {
